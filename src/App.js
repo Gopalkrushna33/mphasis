@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
-function App() {
+import HomePage from "./Components/HomePage/HomePage";
+import LoginPage from "./Components/LoginPage/LoginPage";
+import UserPage from "./Components/UserPage/UserPage";
+import BlogsPage from "./Components/BlogsPage/BlogsPage";
+import Blogs from "./Components/Blogs/Blogs";
+
+import "./App.css";
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+        <Router>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return <Redirect to="/login" />;
+              }}
+            />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/users" component={UserPage} />
+            <Route exact path="/blogs" component={BlogsPage} />
+            <Route exact path="/blogs/:blogId" component={Blogs} />
+          </Switch>
+        </Router>
+    </Fragment>
   );
 }
 

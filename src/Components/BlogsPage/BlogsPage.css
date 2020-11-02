@@ -1,0 +1,7 @@
+.blogsContainer{
+    border: 1px solid;
+    width: 50%;
+    margin: 10px 0;
+    padding: 5px;
+    cursor: pointer;
+}

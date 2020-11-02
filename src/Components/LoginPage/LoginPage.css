@@ -1,0 +1,14 @@
+.form {
+  padding: 50px;
+  border: 2px solid green;
+  width: 25rem;
+}
+.floatrt {
+  float: right;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
